@@ -1,0 +1,49 @@
+ <!-- This will allow users to update their profile details -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Login - CleanEarthChallenge</title>
+</head>
+<body>
+    <header>
+        <!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="nav-content">
+        <a href="index.html" class="brand">
+            <img src="./photos/Earth.png" alt="CleanEarthChallenge" id="logo-img">
+            <span class="site-title">CleanEarthChallenge</span>
+            </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="challenges.html">Challenges</a></li>
+            <li><a href="eco-tips.html">Eco-tips</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+</nav>
+<header>
+
+<section class="profile-edit-section">
+    <h2>Edit Profile</h2>
+    <form action="path_to_backend_edit_endpoint" method="POST" class="profile-form">
+        <label for="profile-pic">Profile Picture:</label>
+        <input type="file" name="profile-pic" id="profile-pic">
+        <label for="fullname">Full Name:</label>
+        <input type="text" name="fullname" id="fullname" value="Existing Name">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="existing@email.com">
+        <label for="bio">Bio:</label>
+        <textarea name="bio" id="bio">Existing Bio</textarea>
+        <button type="submit" class="cta">Update Profile</button>
+    </form>
+</section>
+
+    <footer>
+            <p>&copy; 2023 CleanEarthChallenge. Join the movement!</p>
+    <footer>
+<body>
