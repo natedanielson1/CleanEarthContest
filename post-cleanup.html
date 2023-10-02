@@ -1,0 +1,46 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Post Cleanup - CleanEarthChallenge</title>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-content">
+        <a href="index.html" class="brand">
+            <img src="./photos/Earth.png" alt="CleanEarthChallenge" id="logo-img">
+            <span class="site-title">CleanEarthChallenge</span>
+            </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="challenges.html">Challenges</a></li>
+            <li><a href="eco-tips.html">Eco-tips</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="post-cleanup-container">
+    <h2>Post Your Cleanup</h2>
+    <form action="#" method="POST">
+        <label for="cleanup-location">Location:</label>
+        <input type="text" id="cleanup-location" name="cleanup-location" required>
+
+        <label for="cleanup-image">Upload Image/Video:</label>
+        <input type="file" id="cleanup-image" name="cleanup-image" required>
+
+        <label for="cleanup-description">Description:</label>
+        <textarea id="cleanup-description" name="cleanup-description" rows="4" required></textarea>
+
+        <input type="submit" value="Post Cleanup">
+    </form>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
