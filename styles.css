@@ -222,6 +222,7 @@ header, footer {
     width: 45%; /* This ensures two posts in one row. Adjust as needed. */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
+    background-color: #fff;
     overflow: hidden;
 }
 
