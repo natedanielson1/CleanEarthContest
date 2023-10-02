@@ -69,3 +69,25 @@ document.addEventListener('DOMContentLoaded', function() {
     renderPosts();
     renderChallenges();
 });
+
+document.getElementById('joinChallengeButton').addEventListener('click', function() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/api/joinChallenge', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            alert('Successfully joined challenge!');
+        }
+    };
+
+    var data = {
+        user: {
+            id: getCurrentUserId() // assume a function that retrieves the logged-in user's ID
+        },
+        challenge: {
+            id: getChallengeId() // assume a function that retrieves the current challenge's ID from the page
+        }
+    };
+
+    xhr.send(JSON.stringify(data));
+});
