@@ -65,6 +65,7 @@ function renderChallenges() {
 
 // Initialize functions when the page loads
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Script loaded!');
     renderPosts();
     renderChallenges();
 });
