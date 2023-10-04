@@ -366,7 +366,7 @@ main::after {
 }
 
 /* Post Challenges button style */
-.challenge.button {
+.challenge-button {
     background-color: #4caf50; /* Earthy green */
     color: white;
     padding: 10px 20px;
@@ -376,7 +376,7 @@ main::after {
     transition: background-color 0.3s ease;
 }
 
-.challenge.button:hover {
+.challenge-button:hover {
     background-color: #45a049; /* Slightly darker green for hover effect */
 }
 
