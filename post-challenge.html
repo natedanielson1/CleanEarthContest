@@ -1,1 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Challenge | CleanEarthChallenge</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-content">
+                <a href="index.html" class="brand">
+                    <img src="Earth.png" alt="CleanEarthChallenge" id="logo-img">
+                    <span class="site-title">CleanEarthChallenge</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="explore.html">Explore</a></li>
+                    <li><a href="challenges.html">Challenges</a></li>
+                    <li><a href="eco-tips.html">Eco-tips</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
+    <main>
+        <section class="post-challenge-form">
+            <h2>Post a New Challenge</h2>
+            <form action="submit-challenge-endpoint" method="post">
+                <label for="challenge-title">Challenge Title:</label>
+                <input type="text" id="challenge-title" name="challenge-title" required>
+
+                <label for="challenge-description">Description:</label>
+                <textarea id="challenge-description" name="challenge-description" rows="4" required></textarea>
+
+                <label for="challenge-start">Start Date:</label>
+                <input type="date" id="challenge-start" name="challenge-start" required>
+
+                <label for="challenge-end">End Date:</label>
+                <input type="date" id="challenge-end" name="challenge-end" required>
+
+                <label for="challenge-image">Upload Challenge Image:</label>
+                <input type="file" id="challenge-image" name="challenge-image">
+
+                <input type="submit" value="Post Challenge">
+            </form>
+        </section>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
