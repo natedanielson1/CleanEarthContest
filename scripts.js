@@ -1,93 +1,100 @@
-/ Mock Data
-const posts = [
-    {
-        username: "JohnDoe",
-        location: "City Park",
-        description: "Cleaned up the entire park with friends!",
-        imageUrl: "path_to_image1.jpg"
-    },
-    {
-        username: "JaneSmith",
-        location: "Riverbank",
-        description: "Collected over 50 lbs of trash!",
-        imageUrl: "path_to_image2.jpg"
-    },
-    // Add more mock posts as needed
-];
-
-const challenges = [
-    {
-        title: "Beach Cleanup",
-        description: "Clean up any beach location and collect at least 20lbs of trash."
-    },
-    {
-        title: "Mountain Trail Cleanup",
-        description: "Clean up a mountain trail and take a picture with your collection."
-    },
-    // Add more mock challenges as needed
-];
-
-// Render Posts
-function renderPosts() {
-    const feed = document.querySelector('.cleanup-feed');
-
-    posts.forEach(post => {
-        const postElement = document.createElement('article');
-        postElement.classList.add('cleanup-post');
-
-        postElement.innerHTML = `
-            <img src="${post.imageUrl}" alt="Cleanup at ${post.location}">
-            <h3>${post.username}'s Cleanup at ${post.location}</h3>
-            <p>${post.description}</p>
-        `;
-
-        feed.appendChild(postElement);
-    });
-}
-
-// Render Challenges
-function renderChallenges() {
-    const challengeContainer = document.querySelector('.challenges-sidebar');
-
-    challenges.forEach(challenge => {
-        const challengeElement = document.createElement('div');
-        challengeElement.classList.add('challenge');
-
-        challengeElement.innerHTML = `
-            <h3>${challenge.title}</h3>
-            <p>${challenge.description}</p>
-            <button>Accept Challenge</button>
-        `;
-
-        challengeContainer.appendChild(challengeElement);
-    });
-}
-
-// Initialize functions when the page loads
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Script loaded!');
-    renderPosts();
-    renderChallenges();
-});
+    const scrollingInfoContent = [
+        "CleanEarthChallenge: Making the world a cleaner place!",
+        "Join our latest challenge: Plastic-Free July",
+        "New Blog Post: 10 Tips to Reduce Waste in Your Home",
+        "Event: Beach Cleanup at Malibu, 10th July 2 PM",
+        "Did you know? Over 1 million marine animals die each year from plastic debris in the ocean.",
+        //... Add more messages as needed
+    ];
+    let currentMessageIndex = 0;
 
-document.getElementById('joinChallengeButton').addEventListener('click', function() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/api/joinChallenge', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            alert('Successfully joined challenge!');
-        }
-    };
+    const scrollingInfoBar = document.querySelector('.scrolling-info-bar-content');
 
-    var data = {
-        user: {
-            id: getCurrentUserId() // assume a function that retrieves the logged-in user's ID
+    function updateScrollingInfoBar() {
+        scrollingInfoBar.textContent = scrollingInfoContent[currentMessageIndex];
+        currentMessageIndex = (currentMessageIndex + 1) % scrollingInfoContent.length;
+    }
+
+    setInterval(updateScrollingInfoBar, 5000); // Updates every 5 seconds
+
+    updateScrollingInfoBar(); // Initial update
+
+
+    const cleanupPosts = [
+        {
+            title: "Beach Cleanup",
+            content: "Cleaned up the local beach today. Found a lot of plastic bottles.",
+            imageUrl: "path_to_image1.jpg"
         },
-        challenge: {
-            id: getChallengeId() // assume a function that retrieves the current challenge's ID from the page
-        }
-    };
+        //... add more posts as needed
+    ];
 
-    xhr.send(JSON.stringify(data));
+    const challenges = [
+        {
+            title: "Plastic-Free July",
+            description: "Avoid using single-use plastics for the entire month of July.",
+        },
+        //... add more challenges as needed
+    ];
+
+    function displayCleanupPosts() {
+        const feed = document.querySelector('.cleanup-feed');
+        cleanupPosts.forEach(post => {
+            const postElement = document.createElement('div');
+            postElement.className = "post";
+
+            const postTitle = document.createElement('h2');
+            postTitle.textContent = post.title;
+
+            const postImage = document.createElement('img');
+            postImage.src = post.imageUrl;
+            postImage.alt = post.title;
+
+            const postContent = document.createElement('p');
+            postContent.textContent = post.content;
+
+            postElement.appendChild(postTitle);
+            postElement.appendChild(postImage);
+            postElement.appendChild(postContent);
+
+            feed.appendChild(postElement);
+        });
+    }
+
+    function displayChallenges() {
+        const sidebar = document.querySelector('.challenges-sidebar');
+        challenges.forEach(challenge => {
+            const challengeElement = document.createElement('div');
+            challengeElement.className = "challenge";
+
+            const challengeTitle = document.createElement('h3');
+            challengeTitle.textContent = challenge.title;
+
+            const challengeDescription = document.createElement('p');
+            challengeDescription.textContent = challenge.description;
+
+            const joinButton = document.createElement('button');
+            joinButton.textContent = "Join Challenge";
+            joinButton.onclick = function() {
+                joinChallenge(challenge.title);
+            }
+
+            challengeElement.appendChild(challengeTitle);
+            challengeElement.appendChild(challengeDescription);
+            challengeElement.appendChild(joinButton);
+
+            sidebar.appendChild(challengeElement);
+        });
+    }
+
+    function joinChallenge(challengeTitle) {
+        alert(`You've joined the "${challengeTitle}" challenge!`);
+        // Here you can add further logic for joining the challenge, 
+        // like updating the user profile or saving it to a database.
+    }
+
+    displayCleanupPosts();
+    displayChallenges();
+
 });
