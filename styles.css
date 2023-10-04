@@ -359,7 +359,7 @@ main::after {
 }
 
 /* Post Challenges button style */
-.post-challenge {
+.challenge.button {
     background-color: #4caf50; /* Earthy green */
     color: white;
     padding: 10px 20px;
@@ -369,7 +369,7 @@ main::after {
     transition: background-color 0.3s ease;
 }
 
-.post-challenge:hover {
+.challenge.button:hover {
     background-color: #45a049; /* Slightly darker green for hover effect */
 }
 
