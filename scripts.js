@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             title: "Beach Cleanup",
             content: "Cleaned up the local beach today. Found a lot of plastic bottles.",
-            imageUrl: "path_to_image1.jpg"
+            imageUrl: "earth.jpg"
         },
         //... add more posts as needed
     ];
