@@ -1,0 +1,49 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="_css/styles.css">
+    <title>Login - CleanEarthChallenge</title>
+</head>
+<body>
+    <header>
+        <!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="nav-content">
+        <a href="index.html" class="brand">
+            <img src="Earth.png" alt="CleanEarthChallenge" id="logo-img">
+            <span class="site-title">CleanEarthChallenge</span>
+            </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="challenges.html">Challenges</a></li>
+            <li><a href="eco-tips.html">Eco-tips</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+</nav>
+
+    </header>
+<section class="auth-section">
+    <h2>Join CleanEarthChallenge</h2>
+    <form action="path_to_backend_signup_endpoint" method="POST" class="auth-form">
+        <input type="text" name="fullname" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+        <button type="submit" class="cta">Signup</button>
+    </form>
+    <p>Already have an account? <a href="login.html">Login here</a></p>
+</section>
+
+<footer>
+    <p>&copy; 2023 CleanEarthChallenge. Join the movement!</p>
+</footer>
+<script src="_js/scripts.js"></script>
+
+</body>
+</html>
