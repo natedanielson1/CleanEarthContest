@@ -29,20 +29,74 @@
 
     </header>
     <main class="challenges-content">
-        <h2>Active Challenges</h2>
-        <!-- Sample card for cleanup challenge -->
-        <article class="challenge-card">
-            <h3>Challenge: Cleanup the Riverside</h3>
-            <p>Set by John Smith</p>
-            <p>Duration: 1 week</p>
-            <button class="cta">Join Challenge</button>
-        </article>
-        <!-- Repeat similar cards for more challenges -->
+        <section class="active-challenges">
+            <h2>Active Challenges</h2>
+            <div id="activeChallengesContainer"></div>
+        </section>
+    
+        <section class="completed-challenges">
+            <h2>Completed Challenges</h2>
+            <div id="completedChallengesContainer"></div>
+        </section>
     </main>
     <footer>
         <p>&copy; 2023 CleanEarthChallenge. Join the movement!</p>
     </footer>
-    <script src="_js/scripts.js"></script>
+    <script>
+        // Mock Data
+        const activeChallenges = [
+        {
+            title: "Cleanup the Riverside",
+            setter: "John Smith",
+            duration: "1 week"
+        },
+        // Add more active challenges as needed
+    ];
+
+    const completedChallenges = [
+        {
+            title: "Mountain Cleanup",
+            setter: "Jane Doe",
+            duration: "2 weeks"
+        },
+        // Add more completed challenges as needed
+    ];
+
+    function renderChallenges() {
+        const activeContainer = document.getElementById('activeChallengesContainer');
+        const completedContainer = document.getElementById('completedChallengesContainer');
+
+        activeChallenges.forEach(challenge => {
+            const challengeElement = document.createElement('article');
+            challengeElement.classList.add('challenge-card');
+
+            challengeElement.innerHTML = `
+                <h3>Challenge: ${challenge.title}</h3>
+                <p>Set by ${challenge.setter}</p>
+                <p>Duration: ${challenge.duration}</p>
+                <button class="cta">Join Challenge</button>
+            `;
+
+            activeContainer.appendChild(challengeElement);
+        });
+
+        completedChallenges.forEach(challenge => {
+            const challengeElement = document.createElement('article');
+            challengeElement.classList.add('challenge-card', 'completed');
+
+            challengeElement.innerHTML = `
+                <h3>Challenge: ${challenge.title}</h3>
+                <p>Set by ${challenge.setter}</p>
+                <p>Duration: ${challenge.duration}</p>
+            `;
+
+            completedContainer.appendChild(challengeElement);
+        });
+    }
+
+    // Populate challenges on page load
+    document.addEventListener('DOMContentLoaded', renderChallenges);    
+    </script>
 
 </body>
 </html>
