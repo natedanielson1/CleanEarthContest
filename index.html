@@ -38,9 +38,7 @@
         <div class="scrolling-info">
             <!-- Sample data, replace with dynamic data from your backend -->
             <span class="eco-tip">Eco-tip: Reduce, Reuse, Recycle</span>
-            <span class="eco-tip">Eco-tip: Clean up after yourself</span>
-            <span class="eco-tip">Eco-tip: Don't Litter</span>
-            <span class="eco-tip">Eco-tip: Only poop twice a day</span>
+  
             <!-- <span class="impact-tip">Our Impact: 1500 tons of trash cleaned!</span> -->
         </div>
     </section>
@@ -67,27 +65,22 @@
         <p>&copy; 2023 CleanEarthChallenge. Join the movement!</p>
     </footer>
     <script>
-        const scrollingInfoContent = [
-        "CleanEarthChallenge: Making the world a cleaner place!",
-        "Join our latest challenge: Plastic-Free July",
-        "New Blog Post: 10 Tips to Reduce Waste in Your Home",
-        "Event: Beach Cleanup at Malibu, 10th July 2 PM",
-        "Did you know? Over 1 million marine animals die each year from plastic debris in the ocean.",
-        //... Add more messages as needed
-    ];
-    let currentMessageIndex = 0;
+            // Initialize the World Map
+    var map = L.map('worldMap').setView([20, 0], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+    }).addTo(map);
 
-    const scrollingInfoBar = document.querySelector('.scrolling-info-bar-content');
+    // Add a sample marker for demonstration purposes.
+    // You can replace this with your own data
+    var marker = L.marker([51.5, -0.09]).addTo(map)
+        .bindPopup('<b>Hello world!</b><br>I am a popup.').openPopup();
 
-    function updateScrollingInfoBar() {
-        scrollingInfoBar.textContent = scrollingInfoContent[currentMessageIndex];
-        currentMessageIndex = (currentMessageIndex + 1) % scrollingInfoContent.length;
-    }
+    // For the scrolling info bar, if you want to add more items, 
+    // simply add more <span> elements inside .scrolling-info in your HTML.
 
-    setInterval(updateScrollingInfoBar, 5000); // Updates every 5 seconds
-
-    updateScrollingInfoBar(); // Initial update
-
+    // Additionally, if you integrate this with a backend, 
+    // you can dynamically populate these spans with data.
     </script>
 </body>
 </html>
