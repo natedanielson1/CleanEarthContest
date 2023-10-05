@@ -1,0 +1,126 @@
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #2E8B57; /* Earthy green */
+    padding: 1rem 5%;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+}
+
+#logo-img {
+    width: 50px;
+    margin-right: 1rem;
+}
+
+.site-title {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.nav-links {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links li a {
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.nav-links li a:hover {
+    background-color: #5f9ea0;
+}
+
+/* Main Content */
+.post-button, .challenge-button {
+    margin: 1rem 5%;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #5f9ea0; /* A blend of green and blue, symbolizing land and water */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.post-button:hover, .challenge-button:hover {
+    background-color: #3c6e71; /* Darken on hover */
+}
+
+.cleanup-feed {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.cleanup-post {
+    background-color: #FFF;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 1rem); /* Two posts per row */
+}
+
+.cleanup-post img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.challenges-sidebar {
+    background-color: #dcdcdc;
+    padding: 1rem;
+    position: fixed;
+    right: 5%;
+    width: 20%;
+    top: 15%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.challenge {
+    background-color: #FFF;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+}
+
+.challenge button {
+    background-color: #3c6e71;
+    border: none;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.challenge button:hover {
+    background-color: #2E8B57;
+}

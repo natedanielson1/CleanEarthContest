@@ -339,7 +339,7 @@ header, footer {
     margin-top: 10px;
 }
 
-/* Responsive Styling: You can also add responsiveness so that the sidebar stacks below the feed on smaller screens */
+/* Responsive Styling: You can also add responsiveness so that the sidebar stacks below the feed on smaller screens
 @media (max-width: 768px) {
     .challenges-sidebar {
         width: 100%;
@@ -349,7 +349,7 @@ header, footer {
     .cleanup-feed, .challenges-sidebar {
         box-shadow: none;
     }
-}
+}*/
 
 /* To clear the float and ensure proper layout flow */
 main::after {
@@ -490,48 +490,7 @@ main::after {
 .tip-description {
     font-size: 1.2rem;
 }
-/* Hero Section */
-/*.hero {
-    background-image: url('path_to_hero_background.jpg'); /* A compelling eco-friendly image */
-    /*background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    height: 70vh; /* Adjust depending on the visual you want */
-    /*display: flex;
-    align-items: center; /* Vertically center the content */
-    /*justify-content: center; /* Horizontally center the content */
-    /*color: #fff; /* White text to contrast with the background */
-/*}
 
-.hero-content {
-    text-align: center;
-    max-width: 800px; /* Adjust for content width */
-   /* padding: 1rem; 
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
-/*}
-
-.hero p {
-    font-size: 1.4rem;
-    margin-bottom: 2rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.cta-hero {
-    background-color: #4caf50; /* Earthy green, same as our general CTA */
-    /*padding: 10px 20px;
-    border-radius: 5px;
-    color: #fff;
-    transition: background-color 0.3s;
-}
-
-.cta-hero:hover {
-    background-color: #45a049;
-}*/
 /* Authentication (Login & Signup) Styles */
 .auth-section {
     width: 80%;
