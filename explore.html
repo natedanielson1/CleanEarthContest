@@ -48,6 +48,79 @@
 
 
 <!-- Linking the JavaScript file for dynamic functionality -->
-<script src="_js/scripts.js" type="text/javascript"></script>
+<script src="_js/scripts.js" type="text/javascript">
+    
+    const cleanupPosts = [
+        {
+            title: "Beach Cleanup",
+            content: "Cleaned up the local beach today. Found a lot of plastic bottles.",
+            imageUrl: "path_to_image1.jpg"
+        },
+        //... add more posts as needed
+    ];
+
+    const challenges = [
+        {
+            title: "Plastic-Free July",
+            description: "Avoid using single-use plastics for the entire month of July.",
+        },
+        //... add more challenges as needed
+    ];
+
+    function displayCleanupPosts() {
+        const feed = document.querySelector('.cleanup-feed');
+        cleanupPosts.forEach(post => {
+            const postElement = document.createElement('div');
+            postElement.className = "post";
+
+            const postTitle = document.createElement('h2');
+            postTitle.textContent = post.title;
+
+            const postImage = document.createElement('img');
+            postImage.src = post.imageUrl;
+            postImage.alt = post.title;
+
+            const postContent = document.createElement('p');
+            postContent.textContent = post.content;
+
+            postElement.appendChild(postTitle);
+            postElement.appendChild(postImage);
+            postElement.appendChild(postContent);
+
+            feed.appendChild(postElement);
+        });
+    }
+
+    function displayChallenges() {
+        const sidebar = document.querySelector('.challenges-sidebar');
+        challenges.forEach(challenge => {
+            const challengeElement = document.createElement('div');
+            challengeElement.className = "challenge";
+
+            const challengeTitle = document.createElement('h3');
+            challengeTitle.textContent = challenge.title;
+
+            const challengeDescription = document.createElement('p');
+            challengeDescription.textContent = challenge.description;
+
+            const joinButton = document.createElement('button');
+            joinButton.textContent = "Join Challenge";
+            joinButton.onclick = function() {
+                joinChallenge(challenge.title);
+            }
+
+            challengeElement.appendChild(challengeTitle);
+            challengeElement.appendChild(challengeDescription);
+            challengeElement.appendChild(joinButton);
+
+            sidebar.appendChild(challengeElement);
+        });
+    }
+    function joinChallenge(challengeTitle) {
+        alert(`You've joined the "${challengeTitle}" challenge!`);
+        // Here you can add further logic for joining the challenge, 
+        // like updating the user profile or saving it to a database.
+    }
+</script>
 </body>
 </html>
