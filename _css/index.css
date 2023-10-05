@@ -61,7 +61,7 @@ header {
 /* Scrolling Info Bar */
 .info-bar {
     background-color: #388e3c;
-    overflow: hidden;
+    overflow: scroll;
     white-space: nowrap;
 }
 
