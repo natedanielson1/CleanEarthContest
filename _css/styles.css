@@ -258,75 +258,97 @@ header, footer {
 
 
 /* Explore Page */
-/* Explore page styles */
-
+/* Cleanup Feed Styles */
 .cleanup-feed {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    width: 70%;
-    margin-right: 5%;
-    float: left;
-}
-
-.cleanup-post {
-    width: 45%; /* This ensures two posts in one row. Adjust as needed. */
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    background-color: #fff;
-    overflow: hidden;
 }
 
-.cleanup-post img {
-    width: 100%;
-    height: auto;
-}
-
-.cleanup-post h3 {
-    margin: 10px 0;
-    padding: 0 10px;
-}
-
-.cleanup-post p {
-    padding: 0 10px 10px;
-    color: #666;
-}
-
-.challenges-sidebar {
-    width: 25%;
-    float: left;
-}
-
-.challenge {
-    padding: 15px;
+.cleanup-feed h2 {
+    font-size: 24px;
     margin-bottom: 20px;
+    color: #333;
+}
+
+.cleanup-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: white;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.cleanup-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.cleanup-item-content {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.cleanup-item-content h3 {
+    font-size: 20px;
+    color: #444;
+}
+
+.cleanup-item-content p {
+    font-size: 16px;
+    color: #777;
+}
+
+/* Challenges Sidebar Styles */
+.challenges-sidebar {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px; /* adjust the width as needed */
+}
+
+.challenges-sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.challenge-item {
+    padding: 15px;
+    background-color: white;
+    margin-bottom: 15px;
     border-radius: 5px;
-    background-color: #e8f5e9; /* Light green, but can be adjusted */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-.challenge h3 {
-    margin: 0;
-    color: #2e7d32; /* Earthy Green */
+.challenge-item h3 {
+    font-size: 18px;
+    color: #444;
 }
 
-.challenge p {
-    color: #666;
-}
-
-.challenge button {
+.challenge-item p {
+    font-size: 14px;
+    color: #777;
     margin-top: 10px;
-    padding: 5px 10px;
-    background-color: #4caf50; /* Earthy green */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.challenge button:hover {
-    background-color: #45a049; /* Slightly darker green for hover effect */
+/* Responsive Styling: You can also add responsiveness so that the sidebar stacks below the feed on smaller screens */
+@media (max-width: 768px) {
+    .challenges-sidebar {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .cleanup-feed, .challenges-sidebar {
+        box-shadow: none;
+    }
 }
 
 /* To clear the float and ensure proper layout flow */
