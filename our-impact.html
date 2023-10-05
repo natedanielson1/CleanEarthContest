@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Impact</title>
-    <link rel="stylesheet" href="_css.impact.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <link rel="stylesheet" href="_css/impact.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
 </head>
 <body>
     <div id="map"></div>
-    
+
     <div class="stats">
         <p>Total Cleanups: <span id="totalCleanups">0</span></p>
         <p>Total Pounds of Trash Collected: <span id="totalTrash">0</span></p>
@@ -20,8 +20,9 @@
         <ul id="cleanerList"></ul>
     </div>
 
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
-        // Sample data (you'd typically fetch this from an API)
+        // Sample data
 const pickups = [
     {lat: 40.730610, lng: -73.935242, pounds: 10},
     // ... more data points
@@ -33,23 +34,17 @@ const totalPounds = pickups.reduce((acc, pickup) => acc + pickup.pounds, 0);
 document.getElementById('totalCleanups').textContent = totalCleanups;
 document.getElementById('totalTrash').textContent = totalPounds;
 
-// Initialize the map
-function initMap() {
-    const map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
-        center: {lat: 37.090240, lng: -95.712891}  // center on US
-    });
+// Initialize the map using Leaflet
+const map = L.map('map').setView([37.090240, -95.712891], 4); // Centered on US
 
-    // Add markers for each pickup location
-    pickups.forEach(pickup => {
-        const marker = new google.maps.Marker({
-            position: pickup,
-            map: map
-        });
-    });
-}
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+}).addTo(map);
 
-initMap();
+// Add markers for each pickup location
+pickups.forEach(pickup => {
+    L.marker([pickup.lat, pickup.lng]).addTo(map);
+});
 
 // Sample leaderboard data and display
 const cleaners = [
@@ -62,6 +57,7 @@ cleaners.forEach(cleaner => {
     li.textContent = `${cleaner.name} - ${cleaner.cleanups} cleanups`;
     cleanerList.appendChild(li);
 });
+
     </script>
 </body>
 </html>
