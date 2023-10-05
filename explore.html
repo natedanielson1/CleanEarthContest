@@ -49,73 +49,76 @@
 
 <!-- Linking the JavaScript file for dynamic functionality -->
 <script>
-    
-    const cleanupPosts = [
-        {
-            title: "Beach Cleanup",
-            content: "Cleaned up the local beach today. Found a lot of plastic bottles.",
-            imageUrl: "_assets/earth.png"
-        },
-        //... add more posts as needed
-    ];
+// Mock Data
+const posts = [
+    {
+        username: "JohnDoe",
+        location: "City Park",
+        description: "Cleaned up the entire park with friends!",
+        imageUrl: "path_to_image1.jpg"
+    },
+    {
+        username: "JaneSmith",
+        location: "Riverbank",
+        description: "Collected over 50 lbs of trash!",
+        imageUrl: "path_to_image2.jpg"
+    },
+    // Add more mock posts as needed
+];
 
-    const challenges = [
-        {
-            title: "Plastic-Free July",
-            description: "Avoid using single-use plastics for the entire month of July.",
-        },
-        //... add more challenges as needed
-    ];
+const challenges = [
+    {
+        title: "Beach Cleanup",
+        description: "Clean up any beach location and collect at least 20lbs of trash."
+    },
+    {
+        title: "Mountain Trail Cleanup",
+        description: "Clean up a mountain trail and take a picture with your collection."
+    },
+    // Add more mock challenges as needed
+];
 
-    function displayCleanupPosts() {
-        const feed = document.querySelector('.cleanup-feed');
-        cleanupPosts.forEach(post => {
-            const postElement = document.createElement('div');
-            postElement.className = "post";
+// Render Posts
+function renderPosts() {
+    const feed = document.querySelector('.cleanup-feed');
 
-            const postTitle = document.createElement('h2');
-            postTitle.textContent = post.title;
+    posts.forEach(post => {
+        const postElement = document.createElement('article');
+        postElement.classList.add('cleanup-post');
 
-            const postImage = document.createElement('img');
-            postImage.src = post.imageUrl;
-            postImage.alt = post.title;
+        postElement.innerHTML = `
+            <img src="${post.imageUrl}" alt="Cleanup at ${post.location}">
+            <h3>${post.username}'s Cleanup at ${post.location}</h3>
+            <p>${post.description}</p>
+        `;
 
-            const postContent = document.createElement('p');
-            postContent.textContent = post.content;
+        feed.appendChild(postElement);
+    });
+}
 
-            postElement.appendChild(postTitle);
-            postElement.appendChild(postImage);
-            postElement.appendChild(postContent);
+// Render Challenges
+function renderChallenges() {
+    const challengeContainer = document.querySelector('.challenges-sidebar');
 
-            feed.appendChild(postElement);
-        });
-    }
+    challenges.forEach(challenge => {
+        const challengeElement = document.createElement('div');
+        challengeElement.classList.add('challenge');
 
-    function displayChallenges() {
-        const sidebar = document.querySelector('.challenges-sidebar');
-        challenges.forEach(challenge => {
-            const challengeElement = document.createElement('div');
-            challengeElement.className = "challenge";
+        challengeElement.innerHTML = `
+            <h3>${challenge.title}</h3>
+            <p>${challenge.description}</p>
+            <button>Accept Challenge</button>
+        `;
 
-            const challengeTitle = document.createElement('h3');
-            challengeTitle.textContent = challenge.title;
+        challengeContainer.appendChild(challengeElement);
+    });
+}
 
-            const challengeDescription = document.createElement('p');
-            challengeDescription.textContent = challenge.description;
-
-            const joinButton = document.createElement('button');
-            joinButton.textContent = "Join Challenge";
-            joinButton.onclick = function() {
-                joinChallenge(challenge.title);
-            }
-
-            challengeElement.appendChild(challengeTitle);
-            challengeElement.appendChild(challengeDescription);
-            challengeElement.appendChild(joinButton);
-
-            sidebar.appendChild(challengeElement);
-        });
-    }
+// Initialize functions when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    renderPosts();
+    renderChallenges();
+});
     function joinChallenge(challengeTitle) {
         alert(`You've joined the "${challengeTitle}" challenge!`);
         // Here you can add further logic for joining the challenge, 
