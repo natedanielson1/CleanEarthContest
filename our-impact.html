@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Impact</title>
+    <link rel="stylesheet" href="_css.impact.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+</head>
+<body>
+    <div id="map"></div>
+    
+    <div class="stats">
+        <p>Total Cleanups: <span id="totalCleanups">0</span></p>
+        <p>Total Pounds of Trash Collected: <span id="totalTrash">0</span></p>
+    </div>
+
+    <div class="leaderboard">
+        <h2>Top Cleaners</h2>
+        <ul id="cleanerList"></ul>
+    </div>
+
+    <script>
+        // Sample data (you'd typically fetch this from an API)
+const pickups = [
+    {lat: 40.730610, lng: -73.935242, pounds: 10},
+    // ... more data points
+];
+const totalCleanups = pickups.length;
+const totalPounds = pickups.reduce((acc, pickup) => acc + pickup.pounds, 0);
+
+// Update the displayed stats
+document.getElementById('totalCleanups').textContent = totalCleanups;
+document.getElementById('totalTrash').textContent = totalPounds;
+
+// Initialize the map
+function initMap() {
+    const map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+        center: {lat: 37.090240, lng: -95.712891}  // center on US
+    });
+
+    // Add markers for each pickup location
+    pickups.forEach(pickup => {
+        const marker = new google.maps.Marker({
+            position: pickup,
+            map: map
+        });
+    });
+}
+
+initMap();
+
+// Sample leaderboard data and display
+const cleaners = [
+    {name: "John Doe", cleanups: 10},
+    // ... more cleaners
+];
+const cleanerList = document.getElementById('cleanerList');
+cleaners.forEach(cleaner => {
+    const li = document.createElement('li');
+    li.textContent = `${cleaner.name} - ${cleaner.cleanups} cleanups`;
+    cleanerList.appendChild(li);
+});
+    </script>
+</body>
+</html>
